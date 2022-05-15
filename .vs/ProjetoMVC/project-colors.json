@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "6ab8ac55-bfbd-4cde-a23a-a7ea4b7c699b": {
+      "ProjectGuid": "6ab8ac55-bfbd-4cde-a23a-a7ea4b7c699b",
+      "DisplayName": "Doceria",
+      "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Arquivos Diversos",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 1
+}

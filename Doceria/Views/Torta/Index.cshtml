@@ -1,0 +1,26 @@
+﻿@model TortaListaViewModel
+
+<h1>Tortas</h1>
+
+@if (Model.Lista.Count == 0)
+{
+    <div class="alert alert-warning" role="alert">
+        Não há nenhuma torta cadastrada!
+    </div>
+}
+else
+{
+    @foreach (var torta in Model.Lista)
+    {
+        <div class="card border-secondary m-2" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">@torta.Nome</h5>
+                <p class="card-text">@torta.Descricao</p>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Preço: R$ @torta.Preco</li>
+                    <li class="list-group-item">Vegana? <span style="font-weight: bold">@(torta.IsVegana ? "Sim" : "Não")</span></li>
+                </ul>
+            </div>
+        </div>
+    }
+}

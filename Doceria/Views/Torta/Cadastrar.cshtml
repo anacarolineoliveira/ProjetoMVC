@@ -1,0 +1,70 @@
+﻿@model TortaListaViewModel
+
+@{
+    ViewData["Title"] = "Cadastro de tortas";
+}
+
+<h1>Cadastro de Tortas</h1>
+
+
+<form asp-action="cadastrar">
+    <div class="form-group">
+        <label asp-for="Torta.Nome"></label>
+        <input asp-for="Torta.Nome" class="form-control" />
+
+        <label asp-for="Torta.Descricao"></label>
+        <input asp-for="Torta.Descricao" class="form-control" />
+
+        <label asp-for="Torta.Preco"></label>
+        <input asp-for="Torta.Preco" class="form-control" />
+
+        <label asp-for="Torta.Data"></label>
+        <input asp-for="Torta.Data" class="form-control" />
+
+        <label asp-for="Torta.Tipo"></label>
+        <select asp-for="Torta.Tipo" class="form-control"
+                asp-items="@Html.GetEnumSelectList<TipoTorta>()">
+            <option>Selecione o tipo de torta</option>
+        </select>
+
+        @*<label asp-for="IsVegana"></label>
+            <input asp-for="IsVegana" class="form-control" />*@
+
+        <div class="custom-control custom-switch custom-select-lg al-4">
+            <input asp-for="Torta.IsVegana" class="custom-control-input" />
+            <label asp-for="Torta.IsVegana" class="custom-control-label"></label>
+        </div>
+    </div>
+    <input type="submit" class="btn btn-success" value="Cadastrar" />
+</form>
+
+@if (TempData["sucesso"] != null)
+{
+    <div class="alert alert-success mt-2 text-center font-weight-bold" role="alert">
+        @TempData["sucesso"]
+    </div>
+    <table class="table table-striped table-hover text-center">
+        <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Preço</th>
+            <th>Data</th>
+            <th>Tipo</th>
+            <th>Vegana?</th>
+        </tr>
+        @foreach (var item in Model.Lista)
+        {
+            <tr>
+                <th>@item.Nome</th>
+                <th>@item.Descricao</th>
+                <th class="m-2">R$ @item.Preco</th>
+                <th>@item.Data.ToShortDateString()</th>
+                <th>@item.Tipo</th>
+                <th>@(item.IsVegana?"Sim":"Não")</th>
+            </tr>
+
+        }
+    </table>
+}
+
+
